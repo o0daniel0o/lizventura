@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=divice-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<title>pagina web</title>
 
 
 <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
+   var config = {
     apiKey: "AIzaSyBZudIAtrfUo7rE74qYwTdsxgIt6eUkdLQ",
     authDomain: "lizventura-7141d.firebaseapp.com",
     databaseURL: "https://lizventura-7141d.firebaseio.com",
@@ -20,17 +20,283 @@
     messagingSenderId: "150164590868"
   };
   firebase.initializeApp(config);
+ 
+   var storageRef = firebase.storage().ref();
+
 </script>
-
-
-	
-</head>
+<script src="app.js"></script>
+      </head>
 <body>
 
+
+
+<div  id="login_div">
+        <header class="pt-3">    
+        </header>
+        <div class="container-fluid">
+          <img src="descarga.png" class="img-fluid mx-auto d-block pt-3 " alt="Responsive image" >    
+        </div>
+        <nav class="pt-3"></nav>
+        
+        <div  id="" class="container ">  
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-3 col-sm-2 col-1 ">
+            
+          </div>
+          <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-8 col-10 border border-secondary rounded-2 bg-dark" >
+                        <div class="container pt-3 pb-3" >
+
+                             
+                              <input type="email" class="form-control mt-3" id="txtEmail"  placeholder="Ingresar email">
+
+                             
+                              <input type="password" class="form-control mt-3 "  id="txtPassword" placeholder="pon Password">
+                              <div >.</div>
+                              
+                              
+                              <button id = "btnLogin"  type="button" class="btn btn-light btn-block mt-3 mb-3 mx-auto" data-toggle="button" aria-pressed="false" autocomplete="off" style="width: 50%" onclick="login()">Login</button>
+                           
+
+
+                              <!-- <button id = "btnLogout" class="btn btn-action hide">Logout</button>  -->
+                      </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-3 col-sm-2 col-1 ">
+            
+          </div>
+        </div>
+        </div>
+</div>
+
+
+<div id="user_div" class="loggedin-div">                       
+
+                <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #000000; line-height: 2px">
+                      
+                      <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                       </button>
+                       <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav">
+                            <li class="nav-item active">
+                              <a class="nav-link" href="#"><h5>MODELOS</h5><span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#"><h5>Ordenes</h5></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#"><h5>Inventario</h5></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled" href="#"><h5>Contabilidad</h5></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled" onclick="logout()" href="#"><h5>cerrar sesion</h5></a>
+                            </li>
+                          
+
+                          </ul>
+                          
+
+                                
+                               
+                              
+                            
+                          
+
+                              
+                        </div>
   
-  	<h1>hola mundo</h1>
-    hola mundo
-    <button>nuevo</button>
+                </nav>
+
+
+
+
+
+
+
+
+
+                <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+
+
+
+<body>
+                
+
+  
+
+                <section class="section" >
+
+                                <h3 class="subtitle">  MODELOS </h2>
+
+
+                                      
+
+                                <div id="movieContainer">
+                                  
+                                </div>
+                                <DIV>
+                                  
+                                </DIV>
+
+                                <div class="container-fluid">
+                                        <h3 class="title">INGRESAR NUEVO</h3>
+                                </div>
+
+                              <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">CODIGO</span>
+                                    </div>
+                                    <input id="ZapatoModelo" type="text input" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                             </div>
+
+                              <div id="storage_firebase" class="input-group input-group-sm mb-3" >
+                                       <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">IMAGEN</span>
+                                        </div>
+                                      <input type="file" id="fileItem">
+                                      
+                              </div>
+
+
+                              <div class="input-group mb-3">
+                                        <DIV class='center'> <button id="buttonSend" type="button"  class="btn btn-primary btn-lg btn-block">GRABAR NUEVO MODELO</button></DIV>
+
+
+
+
+
+                               
+
+                              </div>
+                </section>  
+
+                <script type="text/javascript">
+  
+
+                                  var database = firebase.database();
+                                  var storageRef = firebase.storage().ref();
+
+                                    database.ref('modelozapato/').once('value').then(function(snapshot) {
+                                      // Obtenemos la informacion de Movies en la base de datos
+                                      var totalmodelozapato = snapshot.val();
+                                      // como es un objeto extraño, primero sacamos las llaves del objeto
+                                      var objectKeys = Object.keys(snapshot.val());
+                                      // inicializamos un template para insertar las peliculas
+                                      var zapatoTemplate = "";
+                                      // Iteramos sobre las llaves del objeto obtenidas
+
+                                      
+
+                                      for (var i = 0; i < objectKeys.length; i++) {
+                                        // Obtenemos los datos con las llaves obtenidas de cada elemento del objeto (peliculas)
+                                        var ZapatoModelo = totalmodelozapato[objectKeys[i]].modelo;
+                                        
+                                        // Vamos preparando el template por cada pelicula
+                                        // y sobreescribiendo la variable zapatoTemplate
+                                        // para que tenga cada una de las peliculas4
+
+
+
+
+                                        
+
+                                       zapatoTemplate = zapatoTemplate + `<tr> 
+                                       
+                                          <td  class="modelozapato" >
+                                            ${ZapatoModelo}
+                                          </td>
+                                          
+                                        <tr>`
+
+
+                                        console.log(ZapatoModelo);
+                                      }
+                                      
+
+                                      // Insertamos el template con todas las peliculas en el div correspondiente
+                                      document.getElementById("movieContainer").innerHTML = '<div class="table-responsive"><table class="table"><table class="table table-dark">  <thead>    <tr>      <th scope="col">MODELO</th>     <th scope="col">IMAGEN</th>  <th scope="col">PRECIO SIN IGV</th>   <th scope="col">DETALLES</th>     </tr>    </thead>  <tbody>'+
+                                zapatoTemplate + '</tbody></table></table></div>';
+                                        
+
+
+                                    });
+                                    // Agregamos logica al evento de click en el elemento button
+                                    document.getElementById("buttonSend").onclick = function () {
+                                      // Obtenemos los valores de los inputs que vamos a enviar a nuestra base de datos
+                                      var ZapatoModelo = document.getElementById("ZapatoModelo").value;
+                                      
+                                      // Escribimos en nuestra base de datos con la funcion PUSH
+                                      database.ref('modelozapato/').push({
+                                        
+                                        modelo: ZapatoModelo 
+                                       
+                                      });
+                                      // Resetamos los inputs para que queden en blanco despues de enviarlos
+                                      ZapatoModelo = "";
+
+                                     
+                                    }
+
+
+
+
+                </script> 
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</div>
+
+
+
+             
+
+             
+
+              
+
+
+
+
+
+
+
+
+
+              
+   
+
+
+
+
+
+
+  
+
+    
+    
+  
+  <footer>
+    
+  </footer>
+
+
+
+
+
+  
+  
+
 
 
 
@@ -39,9 +305,10 @@
 				
 
 
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+
+
 </html>
